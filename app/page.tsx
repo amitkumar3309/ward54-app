@@ -1,69 +1,71 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <div className="flex flex-col items-center justify-center p-4 sm:p-6 text-slate-800 py-10">
+      
+      {/* Premium Box */}
+      <div className="max-w-6xl w-full px-6 py-12 sm:py-16 bg-white/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.1)] rounded-[2.5rem] border border-white relative overflow-hidden">
+        
+        {/* Decorative background shapes */}
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-emerald-400 via-emerald-600 to-emerald-800"></div>
+        
+        {/* === मुख्य 3-हिस्सों वाला लेआउट === */}
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+          
+          {/* 1. लेफ्ट (Left): जनसेतु लोगो */}
+          <div className="w-full md:w-1/3 flex justify-center md:justify-start">
+            <img 
+              src="/1000743273.png" 
+              alt="JanSetu Logo" 
+              className="h-40 sm:h-56 drop-shadow-2xl hover:scale-105 transition duration-500 object-contain" 
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          {/* 2. सेंटर (Center): टेक्स्ट और बटन */}
+          <div className="w-full md:w-1/3 text-center flex flex-col items-center">
+            <h2 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-800 to-slate-800 mb-4 tracking-tight">
+              जनसेतु पोर्टल
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-700 mb-8 font-bold leading-relaxed">
+              वार्ड 54 की हर समस्या का त्वरित और पारदर्शी समाधान।
+            </p>
+            
+            <div className="flex flex-col gap-4 w-full px-4 sm:px-0">
+              <Link href="/login" className="w-full py-4 bg-emerald-700 text-white text-lg font-bold rounded-2xl hover:bg-emerald-800 transition-all shadow-[0_10px_20px_rgba(4,_120,_87,_0.3)] hover:-translate-y-1">
+                लॉगिन करें (Login)
+              </Link>
+              <Link href="/register" className="w-full py-4 bg-white text-emerald-700 border-2 border-emerald-700 text-lg font-bold rounded-2xl hover:bg-emerald-50 transition-all shadow-sm hover:-translate-y-1">
+                नया अकाउंट बनाएं
+              </Link>
+              <Link href="/admin" className="mt-3 text-sm font-bold text-slate-500 hover:text-emerald-700 underline underline-offset-4">
+                एडमिन लॉगिन यहाँ से करें
+              </Link>
+            </div>
+          </div>
+
+          {/* 3. राइट (Right): आपकी फोटो और टैगलाइन */}
+          <div className="w-full md:w-1/3 flex flex-col items-center md:justify-end">
+            <div className="relative">
+              <img 
+                src="/1000742480.png" 
+                alt="Amit Kumar" 
+                className="h-40 w-40 sm:h-52 sm:w-52 rounded-full border-4 sm:border-[6px] border-emerald-500 shadow-2xl object-cover hover:scale-105 transition duration-500"
+              />
+              <span className="absolute bottom-2 right-4 h-6 w-6 bg-green-500 border-4 border-white rounded-full"></span>
+            </div>
+            <h3 className="mt-5 text-2xl font-extrabold text-slate-800">Amit Kumar</h3>
+            <p className="text-sm font-black text-emerald-700 bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-200 mt-2 shadow-sm uppercase tracking-wide">
+              युवा, शिक्षित और ईमानदार
+            </p>
+          </div>
+
         </div>
-      </main>
+      </div>
+      
+      <p className="mt-8 text-sm font-bold text-slate-500 text-center">
+        © 2026 जनसेतु पोर्टल • अमित कुमार द्वारा संचालित
+      </p>
     </div>
   );
 }
